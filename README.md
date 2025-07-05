@@ -1,8 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📦 ImageKit_Video_Image
 
-## Getting Started
+A modern video & image upload and management app built with **Next.js** and integrated with **ImageKit.io**. This project demonstrates secure authentication, efficient media handling, and a full-stack developer workflow. 🚀
 
-First, run the development server:
+---
+
+## ✨ Features
+
+- 🔒 **Authentication:** Secure login system using email and password via NextAuth (JWT strategy).
+- 🖼️ **ImageKit Integration:** Upload, authenticate, and manage media files using ImageKit.io.
+- 📹 **Video Management:** Create, list, and manage video entries with API endpoints.
+- ⚡ **Next.js 14:** Built with App Router, server components, and serverless API routes.
+- 🎨 **Modern UI:** Uses TailwindCSS and DaisyUI for customizable and responsive design.
+- 📚 **TypeScript:** Fully typed for safety and developer experience.
+
+---
+
+## 🚀 Getting Started
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/suthar879/ImageKit_Video_Image.git
+cd ImageKit_Video_Image
+npm install
+```
+
+### 🔧 Environment Setup
+
+Create a `.env.local` file and add the following:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXT_PUBLIC_PUBLIC_KEY=your_imagekit_public_key
+IMAGEKIT_PRIVATE_KEY=your_imagekit_private_key
+NEXT_PUBLIC_URL_ENDPOINT=your_imagekit_url_endpoint
+```
+
+### 🏃‍♂️ Run the Development Server
 
 ```bash
 npm run dev
@@ -14,23 +49,71 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Usage
 
-## Learn More
+- **Authentication:** Register or login at `/login` or `/register`.
+- **Media Upload:** Use the upload button to add images/videos via ImageKit.
+- **Video API:**
+  - `GET /api/videos` - List all videos.
+  - `POST /api/videos` - Add a new video (authentication required).
+- **Edit UI:** Modify `app/page.tsx` to customize your landing page.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏗️ Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/` - Next.js app directory (pages, components, API).
+- `lib/` - Utility libraries (auth, db, API clients).
+- `models/` - Mongoose models for User and Video.
+- `middleware.ts` - Auth middleware for route protection.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔒 Authentication Flow
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Uses NextAuth with credential provider.
+- JWT sessions; user info stored in token/session.
+- Protected API routes and pages using custom middleware.
+
+---
+
+## 🖼️ ImageKit Integration
+
+- Uses `imagekitio-next` for uploading and authenticating media.
+- Serverless route `/api/imagekit-auth` provides secure authentication parameters.
+
+---
+
+## 🧑‍💻 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
+
+---
+
+## 📄 License
+
+This project is for educational/demo purposes. Add a license if you plan to use it in production.
+
+---
+
+## 👤 Author
+
+- **GitHub:** [suthar879](https://github.com/suthar879)
+
+---
+
+## 🌍 Deploy
+
+Deploy easily on [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme). See [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying).
+
+---
+
+## 📚 Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [ImageKit Docs](https://docs.imagekit.io/)
+- [Learn Next.js](https://nextjs.org/learn)
